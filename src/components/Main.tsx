@@ -34,7 +34,9 @@ export class Main extends Component<any, MainState> {
     getUserPerPage = (listUsers: UserModel[], offset: number, pageIndex: number, limit: number) => {
         let usersPerPage = [];
         for (let i = offset; i < pageIndex * limit; i++) {
-            usersPerPage.push(listUsers[i]);
+            if (listUsers[i]) {
+                usersPerPage.push(listUsers[i]);
+            }
         }
         return usersPerPage;
     }
